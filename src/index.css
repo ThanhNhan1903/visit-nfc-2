@@ -8,11 +8,11 @@
   }
 
   .card-header {
-    @apply relative bg-blue-50 pt-20 pb-8 px-8 text-center;
+    @apply relative bg-blue-50 pt-16 pb-6 px-6 text-center;
   }
 
   .card-avatar {
-    @apply w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4;
+    @apply w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden;
   }
 
   .card-name {
@@ -28,65 +28,76 @@
   }
 
   .contact-section {
-    @apply p-6 space-y-4;
+    @apply p-6 space-y-6;
   }
 
   .contact-row {
     @apply flex items-stretch;
-    @apply mx-4 sm:mx-0;
+    @apply mx-0;
+    @apply flex-col sm:flex-row gap-3 sm:gap-4;
   }
 
   .contact-button {
     @apply flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
     @apply w-full sm:w-auto;
     @apply text-sm sm:text-base;
+    @apply justify-center sm:justify-start;
   }
 
   .social-links {
-    @apply flex justify-center gap-4 py-4;
+    @apply flex flex-wrap justify-center gap-3;
+    @apply px-4;
   }
 
   .social-button {
-    @apply w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200;
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all hover:scale-105;
   }
 
   .about-section {
-    @apply px-6 py-4;
+    @apply px-6 py-6;
   }
 
   .section-title {
-    @apply text-lg font-semibold text-gray-900 mb-2;
+    @apply text-lg font-semibold text-gray-900 mb-3;
   }
 
   .section-content {
-    @apply text-gray-600;
+    @apply text-gray-600 leading-relaxed;
   }
 
   .company-section {
-    @apply px-6 pb-6;
+    @apply px-6 py-6;
+    @apply space-y-3;
   }
 
   .company-logo {
-    @apply w-12 h-12 bg-gray-200 rounded-lg mb-2;
+    @apply w-16 h-16 bg-gray-200 rounded-lg overflow-hidden;
   }
 
   .company-link {
-    @apply text-blue-600 hover:text-blue-700 mb-2 block;
+    @apply text-blue-600 hover:text-blue-700 block;
+    @apply hover:underline;
   }
 
   .company-address {
-    @apply flex items-start gap-2 text-gray-600 mt-4;
+    @apply flex items-start gap-2 text-gray-600 mt-2;
   }
 
   .action-buttons {
-    @apply flex gap-3 px-6 pb-6;
+    @apply flex gap-4 p-6;
+  }
+
+  .btn-save, .btn-connect {
+    @apply flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all;
+    @apply text-sm sm:text-base;
+    @apply hover:scale-[1.02];
   }
 
   .btn-save {
-    @apply flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700;
+    @apply bg-blue-600 text-white hover:bg-blue-700;
   }
 
   .btn-connect {
-    @apply flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 py-3 rounded-xl hover:bg-gray-200;
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
   }
 }
