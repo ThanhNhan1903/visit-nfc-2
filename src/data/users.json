@@ -1,0 +1,84 @@
+{
+  "users": {
+    "nguyen-van-a": {
+      "name": "Nguyễn Văn A",
+      "title": "Marketing Director",
+      "contact": {
+        "phone": "+84 123 456 789",
+        "email": "nguyen.van.a@company.com"
+      },
+      "about": "Marketing professional with 10+ years of experience in digital strategy and brand development for international markets.",
+      "company": {
+        "name": "ABC Company",
+        "website": "www.abccompany.com",
+        "description": "ABC Company is a leading digital marketing agency specializing in brand strategy, content marketing, and performance advertising across Southeast Asia. Founded in 2010, we've helped over 200 brands achieve their marketing goals.",
+        "address": "123 Nguyễn Huệ, District 1, Ho Chi Minh City, Vietnam"
+      },
+      "social": {
+        "linkedin": "#",
+        "website": "#",
+        "chat": "#",
+        "qr": "#"
+      }
+    },
+    "tran-thi-b": {
+      "name": "Trần Thị B",
+      "title": "UX/UI Designer",
+      "contact": {
+        "phone": "+84 987 654 321",
+        "email": "tran.thi.b@designstudio.com"
+      },
+      "about": "Creative UX/UI designer with 5+ years of experience in creating user-centered digital experiences. Specialized in mobile app and web design with a focus on accessibility and user engagement.",
+      "company": {
+        "name": "Design Studio",
+        "website": "www.designstudio.com",
+        "description": "Design Studio is a creative agency that combines design thinking with cutting-edge technology to create exceptional digital experiences. Our team of designers and developers work together to deliver innovative solutions for global brands.",
+        "address": "456 Lê Lợi, District 3, Ho Chi Minh City, Vietnam"
+      },
+      "social": {
+        "linkedin": "#",
+        "website": "www.behance.net/tran-thi-b",
+        "chat": "#",
+        "qr": "#"
+      }
+    },
+    "le-van-c": {
+      "name": "Lê Văn C",
+      "title": "Technical Lead",
+      "contact": {
+        "phone": "+84 909 123 456",
+        "email": "le.van.c@techcorp.com"
+      },
+      "about": "Experienced technical leader with 8+ years in full-stack development. Expert in cloud architecture, microservices, and leading development teams. Passionate about mentoring and building scalable solutions.",
+      "company": {
+        "name": "Tech Corp",
+        "website": "www.techcorp.com",
+        "description": "Tech Corp is a leading software development company specializing in enterprise solutions, cloud services, and digital transformation. With a team of 200+ engineers, we deliver cutting-edge technology solutions to clients worldwide.",
+        "address": "789 Điện Biên Phủ, Bình Thạnh District, Ho Chi Minh City, Vietnam"
+      },
+      "social": {
+        "linkedin": "#",
+        "website": "github.com/levanc",
+        "chat": "#",
+        "qr": "#"
+      }
+    }
+  },
+  "userList": [
+    {
+      "id": "nguyen-van-a",
+      "name": "Nguyễn Văn A",
+      "title": "Marketing Director"
+    },
+    {
+      "id": "tran-thi-b",
+      "name": "Trần Thị B",
+      "title": "UX/UI Designer"
+    },
+    {
+      "id": "le-van-c",
+      "name": "Lê Văn C",
+      "title": "Technical Lead"
+    }
+  ]
+} 

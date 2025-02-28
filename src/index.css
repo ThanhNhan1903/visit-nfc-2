@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .business-card {
+    @apply max-w-md mx-auto bg-white rounded-3xl shadow-lg overflow-hidden;
+  }
+
+  .card-header {
+    @apply relative bg-blue-50 pt-20 pb-8 px-8 text-center;
+  }
+
+  .card-avatar {
+    @apply w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4;
+  }
+
+  .card-name {
+    @apply text-2xl font-semibold text-gray-900 mb-1;
+  }
+
+  .card-title {
+    @apply text-gray-600;
+  }
+
+  .theme-toggle {
+    @apply absolute right-4 top-4;
+  }
+
+  .contact-section {
+    @apply p-6 space-y-4;
+  }
+
+  .contact-row {
+    @apply flex gap-4 justify-center;
+  }
+
+  .contact-button {
+    @apply flex-1 flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+
+  .social-links {
+    @apply flex justify-center gap-4 py-4;
+  }
+
+  .social-button {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+
+  .about-section {
+    @apply px-6 py-4;
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-gray-900 mb-2;
+  }
+
+  .section-content {
+    @apply text-gray-600;
+  }
+
+  .company-section {
+    @apply px-6 pb-6;
+  }
+
+  .company-logo {
+    @apply w-12 h-12 bg-gray-200 rounded-lg mb-2;
+  }
+
+  .company-link {
+    @apply text-blue-600 hover:text-blue-700 mb-2 block;
+  }
+
+  .company-address {
+    @apply flex items-start gap-2 text-gray-600 mt-4;
+  }
+
+  .action-buttons {
+    @apply flex gap-3 px-6 pb-6;
+  }
+
+  .btn-save {
+    @apply flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700;
+  }
+
+  .btn-connect {
+    @apply flex-1 flex items-center justify-center gap-2 bg-gray-100 text-gray-700 py-3 rounded-xl hover:bg-gray-200;
+  }
+}
