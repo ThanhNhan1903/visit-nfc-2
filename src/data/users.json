@@ -1,28 +1,35 @@
 {
   "users": {
-    "nguyen-van-a": {
-      "name": "Nguyễn Văn A",
-      "title": "Marketing Director",
+    "lahongvan": {
+      "name": "La Hồng Vân",
+      "avatar": "/src/assets/images/avatars/Anny.jpg",
+      "title": "Deputy General Director",
       "contact": {
         "phone": "+84 123 456 789",
-        "email": "nguyen.van.a@company.com"
+        "email": "anny@vnftgroup.com"
       },
       "about": "Marketing professional with 10+ years of experience in digital strategy and brand development for international markets.",
       "company": {
-        "name": "ABC Company",
-        "website": "www.abccompany.com",
+        "name": "VNFT GROUP",
+        "logo": "/src/assets/images/companies/LogoVNFT.png",
+        "website": "www.vnftgroup.com",
         "description": "ABC Company is a leading digital marketing agency specializing in brand strategy, content marketing, and performance advertising across Southeast Asia. Founded in 2010, we've helped over 200 brands achieve their marketing goals.",
         "address": "123 Nguyễn Huệ, District 1, Ho Chi Minh City, Vietnam"
       },
       "social": {
-        "linkedin": "#",
-        "website": "#",
-        "chat": "#",
-        "qr": "#"
+        "skype": "nguyen.van.a",
+        "whatsapp": "+84123456789",
+        "wechat": "nguyenvana_wechat",
+        "telegram": "@nguyenvana",
+        "linkedin": "linkedin.com/in/nguyen-van-a",
+        "viber": "+84123456789",
+        "zalo": "+84123456789",
+        "teams": "nguyen.van.a@company.com"
       }
     },
     "tran-thi-b": {
       "name": "Trần Thị B",
+      "avatar": "/src/assets/images/avatars/tran-thi-b.jpg",
       "title": "UX/UI Designer",
       "contact": {
         "phone": "+84 987 654 321",
@@ -31,19 +38,25 @@
       "about": "Creative UX/UI designer with 5+ years of experience in creating user-centered digital experiences. Specialized in mobile app and web design with a focus on accessibility and user engagement.",
       "company": {
         "name": "Design Studio",
+        "logo": "/src/assets/images/companies/design-studio.png",
         "website": "www.designstudio.com",
         "description": "Design Studio is a creative agency that combines design thinking with cutting-edge technology to create exceptional digital experiences. Our team of designers and developers work together to deliver innovative solutions for global brands.",
         "address": "456 Lê Lợi, District 3, Ho Chi Minh City, Vietnam"
       },
       "social": {
-        "linkedin": "#",
-        "website": "www.behance.net/tran-thi-b",
-        "chat": "#",
-        "qr": "#"
+        "skype": "tran.thi.b",
+        "whatsapp": "+84987654321",
+        "wechat": "tranthib_wechat",
+        "telegram": "@tranthib",
+        "linkedin": "linkedin.com/in/tran-thi-b",
+        "viber": "+84987654321",
+        "zalo": "+84987654321",
+        "teams": "tran.thi.b@designstudio.com"
       }
     },
     "le-van-c": {
       "name": "Lê Văn C",
+      "avatar": "/src/assets/images/avatars/le-van-c.jpg",
       "title": "Technical Lead",
       "contact": {
         "phone": "+84 909 123 456",
@@ -52,15 +65,20 @@
       "about": "Experienced technical leader with 8+ years in full-stack development. Expert in cloud architecture, microservices, and leading development teams. Passionate about mentoring and building scalable solutions.",
       "company": {
         "name": "Tech Corp",
+        "logo": "/src/assets/images/companies/tech-corp.png",
         "website": "www.techcorp.com",
         "description": "Tech Corp is a leading software development company specializing in enterprise solutions, cloud services, and digital transformation. With a team of 200+ engineers, we deliver cutting-edge technology solutions to clients worldwide.",
         "address": "789 Điện Biên Phủ, Bình Thạnh District, Ho Chi Minh City, Vietnam"
       },
       "social": {
-        "linkedin": "#",
-        "website": "github.com/levanc",
-        "chat": "#",
-        "qr": "#"
+        "skype": "le.van.c",
+        "whatsapp": "+84909123456",
+        "wechat": "levanc_wechat",
+        "telegram": "@levanc",
+        "linkedin": "linkedin.com/in/le-van-c",
+        "viber": "+84909123456",
+        "zalo": "+84909123456",
+        "teams": "le.van.c@techcorp.com"
       }
     }
   },
