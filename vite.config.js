@@ -17,9 +17,15 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
-    proxy: {
-      '/api': 'http://localhost:3000'
-    }
+    middleware: [
+      (req, res, next) => {
+        // Xử lý client-side routing
+        if (!req.url.includes('.') && req.url !== '/') {
+          req.url = '/';
+        }
+        next();
+      },
+    ],
   },
   base: '/'
 })
