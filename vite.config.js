@@ -13,5 +13,9 @@ export default defineConfig({
         autoprefixer,
       ],
     }
-  }
+  },
+  server: {
+    historyApiFallback: true
+  },
+  base: '/'
 })

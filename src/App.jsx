@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import BusinessCard from './components/BusinessCard';
 import UserList from './components/UserList';
 import usersData from './data/users.json';
