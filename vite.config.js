@@ -15,7 +15,11 @@ export default defineConfig({
     }
   },
   server: {
-    historyApiFallback: true
+    port: 3000,
+    open: true,
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
   },
   base: '/'
 })
