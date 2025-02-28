@@ -2,7 +2,7 @@
   "users": {
     "lahongvan": {
       "name": "La Hồng Vân",
-      "avatar": "/public/images/avatars/Anny.jpg",
+      "avatar": "/images/avatars/Anny.jpg",
       "title": "Deputy General Director",
       "contact": {
         "phone": "+84 123 456 789",
@@ -11,7 +11,7 @@
       "about": "Marketing professional with 10+ years of experience in digital strategy and brand development for international markets.",
       "company": {
         "name": "VNFT GROUP",
-        "logo": "/public/images/companies/LogoVNFT.png",
+        "logo": "/images/companies/LogoVNFT.png",
         "website": "www.vnftgroup.com",
         "description": "ABC Company is a leading digital marketing agency specializing in brand strategy, content marketing, and performance advertising across Southeast Asia. Founded in 2010, we've helped over 200 brands achieve their marketing goals.",
         "address": "123 Nguyễn Huệ, District 1, Ho Chi Minh City, Vietnam"
