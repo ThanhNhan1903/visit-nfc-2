@@ -71,17 +71,26 @@ function BusinessCard({ userId = 'nguyen-van-a' }) {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
         if (isMobile) {
-            // Tạo contact URI cho mobile
-            const contactUri = `begin:vcard
-version:3.0
-fn:${removeVietnameseTones(userData.name)}
-title:${removeVietnameseTones(userData.title)}
-org:${removeVietnameseTones(userData.company.name)}
-tel;type=work:${userData.contact.phone}
-email;type=work:${userData.contact.email}
-url:${userData.company.website}
-adr;type=work:;;${removeVietnameseTones(userData.company.address)}
-end:vcard`;
+            // Tạo contact URI cho mobile với đầy đủ thông tin
+            const contactUri = `BEGIN:VCARD
+VERSION:3.0
+N:${removeVietnameseTones(userData.name)};;;;
+FN:${removeVietnameseTones(userData.name)}
+TITLE:${removeVietnameseTones(userData.title)}
+ORG:${removeVietnameseTones(userData.company.name)}
+TEL;TYPE=WORK,VOICE:${userData.contact.phone}
+EMAIL;TYPE=WORK,INTERNET:${userData.contact.email}
+URL;TYPE=WORK:${userData.company.website}
+ADR;TYPE=WORK:;;${removeVietnameseTones(userData.company.address)}
+PHOTO;ENCODING=b;TYPE=JPEG:${userData.avatar}
+${userData.social.skype ? `X-SKYPE:${userData.social.skype}\n` : ''}
+${userData.social.whatsapp ? `X-WHATSAPP:${userData.social.whatsapp}\n` : ''}
+${userData.social.telegram ? `X-TELEGRAM:${userData.social.telegram}\n` : ''}
+${userData.social.linkedin ? `X-LINKEDIN:${userData.social.linkedin}\n` : ''}
+${userData.social.zalo ? `X-ZALO:${userData.social.zalo}\n` : ''}
+${userData.social.teams ? `X-TEAMS:${userData.social.teams}\n` : ''}
+NOTE:${removeVietnameseTones(userData.about)}
+END:VCARD`;
 
             // Tạo data URI
             const vCardData = encodeURIComponent(contactUri);
