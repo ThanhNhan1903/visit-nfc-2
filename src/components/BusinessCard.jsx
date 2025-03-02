@@ -67,12 +67,31 @@ function BusinessCard({ userId = 'nguyen-van-a' }) {
 
     // Hàm tạo và tải vCard
     const handleSaveContact = () => {
-        // Kiểm tra nếu là mobile (Android/iOS)
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
         if (isMobile) {
-            // Tạo contact URI cho mobile với đầy đủ thông tin
-            const contactUri = `BEGIN:VCARD
+            // Convert image to base64
+            const getBase64Image = async (imgUrl) => {
+                try {
+                    const response = await fetch(imgUrl);
+                    const blob = await response.blob();
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result.split(',')[1]);
+                        reader.onerror = reject;
+                        reader.readAsDataURL(blob);
+                    });
+                } catch (error) {
+                    console.error('Error converting image:', error);
+                    return '';
+                }
+            };
+
+            // Create and download vCard
+            const createVCard = async () => {
+                const photoData = await getBase64Image(userData.avatar);
+
+                const contactUri = `BEGIN:VCARD
 VERSION:3.0
 N:${removeVietnameseTones(userData.name)};;;;
 FN:${removeVietnameseTones(userData.name)}
@@ -82,28 +101,31 @@ TEL;TYPE=WORK,VOICE:${userData.contact.phone}
 EMAIL;TYPE=WORK,INTERNET:${userData.contact.email}
 URL;TYPE=WORK:${userData.company.website}
 ADR;TYPE=WORK:;;${removeVietnameseTones(userData.company.address)}
-PHOTO;ENCODING=b;TYPE=JPEG:${userData.avatar}
-${userData.social.skype ? `X-SKYPE:${userData.social.skype}\n` : ''}
-${userData.social.whatsapp ? `X-WHATSAPP:${userData.social.whatsapp}\n` : ''}
-${userData.social.telegram ? `X-TELEGRAM:${userData.social.telegram}\n` : ''}
-${userData.social.linkedin ? `X-LINKEDIN:${userData.social.linkedin}\n` : ''}
-${userData.social.zalo ? `X-ZALO:${userData.social.zalo}\n` : ''}
-${userData.social.teams ? `X-TEAMS:${userData.social.teams}\n` : ''}
-NOTE:${removeVietnameseTones(userData.about)}
+${photoData ? `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n` : ''}
+${userData.social.skype ? `X-SOCIALPROFILE;TYPE=skype:${userData.social.skype}\n` : ''}
+${userData.social.whatsapp ? `X-SOCIALPROFILE;TYPE=whatsapp:${userData.social.whatsapp}\n` : ''}
+${userData.social.wechat ? `X-SOCIALPROFILE;TYPE=wechat:${userData.social.wechat}\n` : ''}
+${userData.social.telegram ? `X-SOCIALPROFILE;TYPE=telegram:${userData.social.telegram}\n` : ''}
+${userData.social.linkedin ? `X-SOCIALPROFILE;TYPE=linkedin:${userData.social.linkedin}\n` : ''}
+${userData.social.viber ? `X-SOCIALPROFILE;TYPE=viber:${userData.social.viber}\n` : ''}
+${userData.social.zalo ? `X-SOCIALPROFILE;TYPE=zalo:${userData.social.zalo}\n` : ''}
+${userData.social.teams ? `X-SOCIALPROFILE;TYPE=teams:${userData.social.teams}\n` : ''}
+NOTE:${removeVietnameseTones(userData.about)}\n
+${removeVietnameseTones(userData.company.description)}
 END:VCARD`;
 
-            // Tạo data URI
-            const vCardData = encodeURIComponent(contactUri);
-            const fullUri = `data:text/vcard;charset=utf-8,${vCardData}`;
+                const vCardData = encodeURIComponent(contactUri);
+                const fullUri = `data:text/vcard;charset=utf-8,${vCardData}`;
 
-            // Tạo link ẩn và click
-            const link = document.createElement('a');
-            link.href = fullUri;
-            link.download = `${removeVietnameseTones(userData.name).replace(/\s+/g, '_').toLowerCase()}.vcf`;
-            link.click();
+                const link = document.createElement('a');
+                link.href = fullUri;
+                link.download = `${removeVietnameseTones(userData.name).replace(/\s+/g, '_').toLowerCase()}.vcf`;
+                link.click();
 
-            // Thông báo hướng dẫn
-            alert('Please open the downloaded file to add to contacts');
+                alert('Please open the downloaded file to add to contacts');
+            };
+
+            createVCard();
         } else {
             // Desktop: giữ nguyên logic tải file .vcf
             const vCard = `BEGIN:VCARD
