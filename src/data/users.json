@@ -78,22 +78,5 @@
         ]
       }
     }
-  },
-  "userList": [
-    {
-      "id": "nguyen-van-a",
-      "name": "Nguyễn Văn A",
-      "title": "Marketing Director"
-    },
-    {
-      "id": "tran-thi-b",
-      "name": "Trần Thị B",
-      "title": "UX/UI Designer"
-    },
-    {
-      "id": "le-van-c",
-      "name": "Lê Văn C",
-      "title": "Technical Lead"
-    }
-  ]
+  }
 } 

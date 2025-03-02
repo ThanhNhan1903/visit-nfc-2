@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaPhone, FaEnvelope, FaLinkedin, FaGlobe, FaMapMarkerAlt, FaQrcode, FaDownload, FaShare, FaSkype, FaWhatsapp, FaWeixin, FaTelegram, FaViber } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaLinkedin, FaMapMarkerAlt, FaDownload, FaShare, FaSkype, FaWhatsapp, FaWeixin, FaTelegram, FaViber } from 'react-icons/fa';
 import { SiMicrosoftteams, SiZalo } from 'react-icons/si';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import usersData from '../data/users.json';
@@ -56,21 +56,20 @@ function BusinessCard({ userId = 'nguyen-van-a' }) {
 
     // Hàm chuyển đổi tiếng Việt có dấu thành không dấu
     const removeVietnameseTones = (str) => {
-        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
-        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
-        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
-        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
-        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
-        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
-        str = str.replace(/đ/g, "d");
-        str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
-        str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
-        str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
-        str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
-        str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
-        str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
-        str = str.replace(/Đ/g, "D");
-        return str;
+        const map = {
+            'à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ': 'a',
+            'è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ': 'e',
+            'ì|í|ị|ỉ|ĩ': 'i',
+            'ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ': 'o',
+            'ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ': 'u',
+            'ỳ|ý|ỵ|ỷ|ỹ': 'y',
+            'đ': 'd'
+        };
+        let result = str;
+        Object.entries(map).forEach(([key, value]) => {
+            result = result.replace(new RegExp(key, 'gi'), value);
+        });
+        return result;
     }
 
     // Hàm tạo và tải vCard
@@ -229,7 +228,7 @@ END:VCARD`;
             </div>
 
             <div className="contact-section">
-                <div className="contact-row flex-col sm:flex-row gap-3 sm:gap-4">
+                <div className="contact-row flex-col sm:flex-row gap-3">
                     <a
                         href={`tel:${userData.contact.phone}`}
                         className="contact-button flex-1 justify-center sm:justify-start dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
