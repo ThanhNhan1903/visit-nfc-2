@@ -2,6 +2,7 @@
   "users": {
     "lahongvan": {
       "name": "La Hồng Vân",
+      "englishName": "Anny",
       "avatar": "/images/avatars/Anny.jpg",
       "title": "Deputy General Director",
       "contact": {
@@ -38,58 +39,43 @@
         ]
       }
     },
-    "tran-thi-b": {
-      "name": "Trần Thị B",
-      "avatar": "/src/assets/images/avatars/tran-thi-b.jpg",
-      "title": "UX/UI Designer",
+    "nguyenduykhanh": {
+      "name": "Nguyễn Duy Khánh",
+      "englishName": "Richard",
+      "avatar": "/images/avatars/Anny.jpg",
+      "title": "Deputy General Director",
       "contact": {
-        "phone": "+84 987 654 321",
-        "email": "tran.thi.b@designstudio.com"
+        "phone": " 938 690 680",
+        "email": "mng@vnftgroup.com"
       },
-      "about": "Creative UX/UI designer with 5+ years of experience in creating user-centered digital experiences. Specialized in mobile app and web design with a focus on accessibility and user engagement.",
+      "about": "Marketing professional with 10+ years of experience in digital strategy and brand development for international markets.",
       "company": {
-        "name": "Design Studio",
-        "logo": "/src/assets/images/companies/design-studio.png",
-        "website": "www.designstudio.com",
-        "description": "Design Studio is a creative agency that combines design thinking with cutting-edge technology to create exceptional digital experiences. Our team of designers and developers work together to deliver innovative solutions for global brands.",
-        "address": "456 Lê Lợi, District 3, Ho Chi Minh City, Vietnam"
+        "name": "VNFT GROUP",
+        "logo": "/images/companies/LogoVNFT.png",
+        "website": "www.vnftgroup.com",
+        "description": "VNFT Group, reformed from VN forwarding and trading company LTD, is a one of the leading Logistics company in Vietnam who have many experience years in forwarder & Logistics management, project cargo and Breakbulk cargo handling. VNFT Group has large relationship with many carriers and airlines, ownership.",
+        "address": "3rd Floor DMA Building, 45 Dinh Tien Hoang, Ben Nghe Ward, District 1, Ho Chi Minh City, Viet Nam"
       },
       "social": {
-        "skype": "tran.thi.b",
-        "whatsapp": "+84987654321",
-        "wechat": "tranthib_wechat",
-        "telegram": "@tranthib",
-        "linkedin": "linkedin.com/in/tran-thi-b",
-        "viber": "+84987654321",
-        "zalo": "+84987654321",
-        "teams": "tran.thi.b@designstudio.com"
-      }
-    },
-    "le-van-c": {
-      "name": "Lê Văn C",
-      "avatar": "/src/assets/images/avatars/le-van-c.jpg",
-      "title": "Technical Lead",
-      "contact": {
-        "phone": "+84 909 123 456",
-        "email": "le.van.c@techcorp.com"
+        "skype": "nguyen.van.a",
+        "whatsapp": "+84123456789",
+        "wechat": "nguyenvana_wechat",
+        "telegram": "@nguyenvana",
+        "linkedin": "linkedin.com/in/nguyen-van-a",
+        "viber": "+84123456789",
+        "zalo": "+84123456789",
+        "teams": "nguyen.van.a@company.com"
       },
-      "about": "Experienced technical leader with 8+ years in full-stack development. Expert in cloud architecture, microservices, and leading development teams. Passionate about mentoring and building scalable solutions.",
-      "company": {
-        "name": "Tech Corp",
-        "logo": "/src/assets/images/companies/tech-corp.png",
-        "website": "www.techcorp.com",
-        "description": "Tech Corp is a leading software development company specializing in enterprise solutions, cloud services, and digital transformation. With a team of 200+ engineers, we deliver cutting-edge technology solutions to clients worldwide.",
-        "address": "789 Điện Biên Phủ, Bình Thạnh District, Ho Chi Minh City, Vietnam"
-      },
-      "social": {
-        "skype": "le.van.c",
-        "whatsapp": "+84909123456",
-        "wechat": "levanc_wechat",
-        "telegram": "@levanc",
-        "linkedin": "linkedin.com/in/le-van-c",
-        "viber": "+84909123456",
-        "zalo": "+84909123456",
-        "teams": "le.van.c@techcorp.com"
+      "services": {
+        "title": "Our Services",
+        "list": [
+          "International Freight Forwarding",
+          "Project Cargo Handling",
+          "Customs Clearance",
+          "Warehousing & Distribution",
+          "Door to Door Delivery",
+          "Supply Chain Solutions"
+        ]
       }
     }
   },

@@ -17,6 +17,14 @@ function BusinessCard({ userId = 'nguyen-van-a' }) {
         }
     }, []);
 
+    // Thêm useEffect mới sau useEffect kiểm tra theme
+    useEffect(() => {
+        // Cập nhật title trang web
+        document.title = userData.englishName
+            ? `${userData.name} - ${userData.englishName}`
+            : userData.name;
+    }, [userData.name, userData.englishName]); // Dependencies
+
     // Xử lý chuyển đổi theme
     const toggleTheme = () => {
         if (isDark) {
@@ -201,14 +209,22 @@ END:VCARD`;
                         <MdDarkMode className="text-gray-600 text-xl" />
                     )}
                 </button>
-                <div className="card-avatar dark:bg-gray-600">
+                <div className="card-avatar dark:bg-gray-600 w-32 h-32 relative">
                     <img
                         src={userData.avatar}
                         alt={userData.name}
-                        className="w-full h-full object-cover rounded-full"
+                        className="w-full h-full object-cover rounded-full absolute top-0 left-0"
+                        loading="eager"
                     />
                 </div>
-                <h1 className="card-name dark:text-white">{userData.name}</h1>
+                <h1 className="card-name dark:text-white flex flex-col">
+                    <div>{userData.name}</div>
+                    {userData.englishName && (
+                        <div className="text-gray-500 dark:text-gray-400 text-lg mt-1">
+                            {userData.englishName}
+                        </div>
+                    )}
+                </h1>
                 <p className="card-title dark:text-gray-300">{userData.title}</p>
             </div>
 
