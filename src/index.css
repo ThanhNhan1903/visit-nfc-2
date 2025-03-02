@@ -8,57 +8,64 @@
   }
 
   .card-header {
-    @apply relative bg-blue-50 pt-16 pb-6 px-6 text-center;
+    @apply relative bg-blue-50 pt-28 pb-8 px-8 text-center;
+  }
+
+  .company-logo {
+    @apply absolute left-6 top-6 w-12 h-12 bg-gray-200 rounded-lg overflow-hidden;
   }
 
   .card-avatar {
-    @apply w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden;
+    @apply w-32 h-32 bg-gray-200 rounded-full mx-auto -mt-16 mb-6 overflow-hidden;
   }
 
   .card-name {
-    @apply text-2xl font-semibold text-gray-900 mb-1;
+    @apply text-2xl font-semibold text-gray-900 mb-2;
   }
 
   .card-title {
-    @apply text-gray-600;
+    @apply text-gray-600 bg-white/80 px-4 py-1.5 rounded-full mx-auto inline-block;
+    @apply text-sm font-medium;
+    @apply shadow-sm;
   }
 
   .theme-toggle {
-    @apply absolute right-4 top-4;
+    @apply absolute right-6 top-6;
   }
 
   .contact-section {
-    @apply p-6 space-y-6;
+    @apply p-8 space-y-8;
   }
 
   .contact-row {
     @apply flex items-stretch;
     @apply mx-0;
-    @apply flex-col sm:flex-row gap-3 sm:gap-4;
+    @apply flex-col sm:flex-row gap-4;
   }
 
   .contact-button {
-    @apply flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
     @apply w-full sm:w-auto;
     @apply text-sm sm:text-base;
     @apply justify-center sm:justify-start;
   }
 
   .social-links {
-    @apply flex flex-wrap justify-center gap-3;
-    @apply px-4;
+    @apply grid grid-cols-4 sm:grid-cols-4 gap-4 px-0;
   }
 
   .social-button {
-    @apply w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all hover:scale-105;
+    @apply flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors;
+    @apply w-full;
+    @apply text-lg;
   }
 
   .about-section {
-    @apply px-6 py-6;
+    @apply px-8 py-8;
   }
 
   .section-title {
-    @apply text-lg font-semibold text-gray-900 mb-3;
+    @apply text-lg font-semibold text-gray-900 mb-4;
   }
 
   .section-content {
@@ -66,12 +73,8 @@
   }
 
   .company-section {
-    @apply px-6 py-6;
-    @apply space-y-3;
-  }
-
-  .company-logo {
-    @apply w-16 h-16 bg-gray-200 rounded-lg overflow-hidden;
+    @apply px-8 py-8;
+    @apply space-y-4;
   }
 
   .company-link {
@@ -80,17 +83,11 @@
   }
 
   .company-address {
-    @apply flex items-start gap-2 text-gray-600 mt-2;
+    @apply flex items-start gap-3 text-gray-600 mt-2;
   }
 
   .action-buttons {
-    @apply flex gap-4 p-6;
-  }
-
-  .btn-save, .btn-connect {
-    @apply flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all;
-    @apply text-sm sm:text-base;
-    @apply hover:scale-[1.02];
+    @apply flex gap-4 p-8;
   }
 
   .btn-save {
@@ -99,5 +96,72 @@
 
   .btn-connect {
     @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+
+  .btn-save, .btn-connect {
+    @apply flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all;
+    @apply text-sm sm:text-base;
+    @apply hover:scale-[1.02];
+  }
+
+  .services-section {
+    @apply px-8 py-8 border-t border-gray-100;
+  }
+
+  .services-list {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
+  }
+
+  .service-item {
+    @apply flex items-center gap-2 text-gray-600 dark:text-gray-300;
+  }
+
+  .service-bullet {
+    @apply text-blue-600 dark:text-blue-400 text-lg;
+  }
+
+  /* Dark mode overrides */
+  .dark .business-card {
+    @apply bg-gray-900;
+  }
+
+  .dark .card-header {
+    @apply from-blue-600 to-blue-500;
+  }
+
+  .dark .contact-section,
+  .dark .company-section {
+    @apply bg-gray-800;
+  }
+
+  .dark .about-section,
+  .dark .action-buttons {
+    @apply bg-gray-900;
+  }
+
+  .dark .contact-button,
+  .dark .social-button {
+    @apply bg-gray-700 text-gray-200 hover:bg-gray-600 border-gray-600;
+  }
+
+  .dark .btn-connect {
+    @apply bg-gray-700 text-gray-200 hover:bg-gray-600 border-gray-600;
+  }
+
+  .dark .section-title {
+    @apply text-gray-100;
+  }
+
+  .dark .section-content,
+  .dark .company-address {
+    @apply text-gray-300;
+  }
+
+  .dark .services-section {
+    @apply border-gray-800;
+  }
+
+  .dark .card-title {
+    @apply bg-gray-800/80 text-gray-300;
   }
 }

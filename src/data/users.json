@@ -25,6 +25,17 @@
         "viber": "+84123456789",
         "zalo": "+84123456789",
         "teams": "nguyen.van.a@company.com"
+      },
+      "services": {
+        "title": "Our Services",
+        "list": [
+          "International Freight Forwarding",
+          "Project Cargo Handling",
+          "Customs Clearance",
+          "Warehousing & Distribution",
+          "Door to Door Delivery",
+          "Supply Chain Solutions"
+        ]
       }
     },
     "tran-thi-b": {

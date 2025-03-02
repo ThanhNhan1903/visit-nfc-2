@@ -67,53 +67,64 @@ function BusinessCard({ userId = 'nguyen-van-a' }) {
 
     // Hàm tạo và tải vCard
     const handleSaveContact = () => {
-        // Chuyển đổi tất cả thông tin có dấu thành không dấu
-        const nameWithoutTone = removeVietnameseTones(userData.name);
-        const titleWithoutTone = removeVietnameseTones(userData.title);
-        const companyNameWithoutTone = removeVietnameseTones(userData.company.name);
-        const addressWithoutTone = removeVietnameseTones(userData.company.address);
-        const aboutWithoutTone = removeVietnameseTones(userData.about);
+        // Kiểm tra nếu là mobile (Android/iOS)
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        // Tạo nội dung vCard với thông tin không dấu
-        const vCard = `BEGIN:VCARD
+        if (isMobile) {
+            // Tạo contact URI cho mobile
+            const contactUri = `begin:vcard
+version:3.0
+fn:${removeVietnameseTones(userData.name)}
+title:${removeVietnameseTones(userData.title)}
+org:${removeVietnameseTones(userData.company.name)}
+tel;type=work:${userData.contact.phone}
+email;type=work:${userData.contact.email}
+url:${userData.company.website}
+adr;type=work:;;${removeVietnameseTones(userData.company.address)}
+end:vcard`;
+
+            // Tạo data URI
+            const vCardData = encodeURIComponent(contactUri);
+            const fullUri = `data:text/vcard;charset=utf-8,${vCardData}`;
+
+            // Tạo link ẩn và click
+            const link = document.createElement('a');
+            link.href = fullUri;
+            link.download = `${removeVietnameseTones(userData.name).replace(/\s+/g, '_').toLowerCase()}.vcf`;
+            link.click();
+
+            // Thông báo hướng dẫn
+            alert('Please open the downloaded file to add to contacts');
+        } else {
+            // Desktop: giữ nguyên logic tải file .vcf
+            const vCard = `BEGIN:VCARD
 VERSION:3.0
-FN:${nameWithoutTone}
-TITLE:${titleWithoutTone}
-ORG:${companyNameWithoutTone}
+FN:${removeVietnameseTones(userData.name)}
+TITLE:${removeVietnameseTones(userData.title)}
+ORG:${removeVietnameseTones(userData.company.name)}
 TEL;TYPE=WORK,VOICE:${userData.contact.phone}
 EMAIL;TYPE=WORK,INTERNET:${userData.contact.email}
 URL;TYPE=WORK:${userData.company.website}
-ADR;TYPE=WORK:;;${addressWithoutTone}
+ADR;TYPE=WORK:;;${removeVietnameseTones(userData.company.address)}
 ${userData.social.skype ? `X-SKYPE:${userData.social.skype}\n` : ''}
 ${userData.social.whatsapp ? `X-WHATSAPP:${userData.social.whatsapp}\n` : ''}
 ${userData.social.telegram ? `X-TELEGRAM:${userData.social.telegram}\n` : ''}
 ${userData.social.linkedin ? `X-LINKEDIN:${userData.social.linkedin}\n` : ''}
 ${userData.social.zalo ? `X-ZALO:${userData.social.zalo}\n` : ''}
 ${userData.social.teams ? `X-TEAMS:${userData.social.teams}\n` : ''}
-NOTE:${aboutWithoutTone}
+NOTE:${removeVietnameseTones(userData.about)}
 END:VCARD`;
 
-        // Tạo Blob từ nội dung vCard
-        const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
-
-        // Tạo URL cho Blob
-        const url = window.URL.createObjectURL(blob);
-
-        // Tạo tên file không dấu
-        const fileName = removeVietnameseTones(userData.name)
-            .replace(/\s+/g, '_')
-            .toLowerCase();
-
-        // Tạo element a để tải file
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `${fileName}.vcf`);
-        document.body.appendChild(link);
-        link.click();
-
-        // Cleanup
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
+            const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `${removeVietnameseTones(userData.name).replace(/\s+/g, '_').toLowerCase()}.vcf`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
     };
 
     // Hàm xử lý chia sẻ
@@ -141,6 +152,13 @@ END:VCARD`;
     return (
         <div className="business-card dark:bg-gray-800 dark:text-white">
             <div className="card-header dark:bg-gray-700">
+                <div className="company-logo dark:bg-gray-600">
+                    <img
+                        src={userData.company.logo}
+                        alt={userData.company.name}
+                        className="w-full h-full object-contain"
+                    />
+                </div>
                 <button
                     onClick={toggleTheme}
                     className="theme-toggle hover:scale-110 transition-transform"
@@ -193,37 +211,44 @@ END:VCARD`;
                         </a>
                     )}
                     {userData.social.whatsapp && (
-                        <a href={`https://wa.me/${userData.social.whatsapp}`} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={`https://wa.me/${userData.social.whatsapp}`}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <FaWhatsapp />
                         </a>
                     )}
                     {userData.social.wechat && (
-                        <a href="#" className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href="#"
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <FaWeixin />
                         </a>
                     )}
                     {userData.social.telegram && (
-                        <a href={`https://t.me/${userData.social.telegram}`} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={`https://t.me/${userData.social.telegram}`}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <FaTelegram />
                         </a>
                     )}
                     {userData.social.linkedin && (
-                        <a href={userData.social.linkedin} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={userData.social.linkedin}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <FaLinkedin />
                         </a>
                     )}
                     {userData.social.viber && (
-                        <a href={`viber://chat?number=${userData.social.viber}`} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={`viber://chat?number=${userData.social.viber}`}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <FaViber />
                         </a>
                     )}
                     {userData.social.zalo && (
-                        <a href={`https://zalo.me/${userData.social.zalo}`} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={`https://zalo.me/${userData.social.zalo}`}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <SiZalo />
                         </a>
                     )}
                     {userData.social.teams && (
-                        <a href={`https://teams.microsoft.com/l/chat/0/0?users=${userData.social.teams}`} className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+                        <a href={`https://teams.microsoft.com/l/chat/0/0?users=${userData.social.teams}`}
+                            className="social-button dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
                             <SiMicrosoftteams />
                         </a>
                     )}
@@ -235,15 +260,20 @@ END:VCARD`;
                 <p className="section-content dark:text-gray-300">{userData.about}</p>
             </div>
 
+            <div className="services-section">
+                <h2 className="section-title dark:text-white">{userData.services.title}</h2>
+                <ul className="services-list">
+                    {userData.services.list.map((service, index) => (
+                        <li key={index} className="service-item">
+                            <span className="service-bullet">•</span>
+                            {service}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
             <div className="company-section">
                 <h2 className="section-title dark:text-white">Company</h2>
-                <div className="company-logo dark:bg-gray-600">
-                    <img
-                        src={userData.company.logo}
-                        alt={userData.company.name}
-                        className="w-full h-full object-contain"
-                    />
-                </div>
                 <a href={userData.company.website} className="company-link dark:text-blue-400 dark:hover:text-blue-300">
                     {userData.company.website}
                 </a>
